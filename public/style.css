@@ -1,0 +1,9 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+}
+.btn-orange{
+    background-color: #FF7048;
+    color: white;
+    border-radius: 10px;
+}
