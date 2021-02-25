@@ -14,8 +14,8 @@ class Controller {
     static registerAdd(req, res) {
         // console.log('hai')
         const dataUser = {
-           ...req.body,
-           phone_number:Number(req.body.phone_number)
+            ...req.body,
+            phone_number: Number(req.body.phone_number)
         }
         user.create(dataUser)
             .then((data) => {
@@ -26,27 +26,27 @@ class Controller {
                 res.send(err.message)
             })
     }
-    static loginSuccess(req,res){
-        user.findOne({where:{email:req.body.email}})
-        .then((data)=>{
-        //    if(data.password===comparePassword()req.body.password){
+    static loginSuccess(req, res) {
+        user.findOne({ where: { email: req.body.email } })
+            .then((data) => {
+                //    if(data.password===comparePassword()req.body.password){
 
-        //    }
-        if(comparePassword(req.body.password,data.password)){
-            // res.send('benar')
-            res.render('home.ejs',{data:true})
-        }
-        else{
-            res.render('error.ejs')
-        }
-        })
-        .catch((err)=>{
-            res.send(err.message)
-        })
+                //    }
+                if (comparePassword(req.body.password, data.password)) {
+                    // res.send('benar')
+                    res.render('home.ejs', { data: true })
+                }
+                else {
+                    res.render('error.ejs')
+                }
+            })
+            .catch((err) => {
+                res.send(err.message)
+            })
     }
-    static logout(req,res){
+    static logout(req, res) {
         req.session.destroy()
-        res.render('/', {data:true})
+        res.render('home.ejs', { data: true })
     }
 }
 

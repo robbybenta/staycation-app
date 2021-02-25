@@ -1,4 +1,4 @@
-const firstMiddle=(req,res, next)=>{
-    
+const firstMiddle = (req, res, next) => {
+
     next()
 }

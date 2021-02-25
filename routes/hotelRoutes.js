@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const HotelControl = require('../controllers/controller-hotel')
-const isLogin=require('../middleware/islogin')
+const isLogin = require('../middleware/islogin')
 
 router.get('/', isLogin, HotelControl.findtest)
 
-// router.get('/', HotelControl.findAll)
+router.get('/', HotelControl.findAll)
 router.get('/add', HotelControl.addGet)
 router.post('/add', HotelControl.addPost)
 router.get('/edit/:id', HotelControl.editGet)

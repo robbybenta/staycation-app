@@ -6,7 +6,7 @@ class HotelControl {
             include: [{ model: user }]
         })
             .then(data => {
-                res.render('hotelList', { data }) // <<< param1 sesuaikan aja sama nama ejsnya nanti
+                res.render('hotelList', { data: data }) // <<< param1 sesuaikan aja sama nama ejsnya nanti
             })
             .catch(err => {
                 res.send(err.message)
@@ -16,7 +16,7 @@ class HotelControl {
     static addGet(req, res) {
         hotel.findAll()
             .then(data => {
-                res.render('addHotel', { data })
+                res.render('addHotel', data)
             })
             .catch(err => {
                 res.send(err.message)
@@ -41,7 +41,7 @@ class HotelControl {
     static editGet(req, res) {
         hotel.findByPk(req.params.id)
             .then(data => {
-                res.render('editHotel', { data })
+                res.render('editHotel', data)
             })
             .catch(err => {
                 res.send(err.message)
