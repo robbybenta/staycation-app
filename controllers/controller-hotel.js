@@ -63,7 +63,7 @@ class HotelControl {
             })
     }
 
-    static delete(req, res) {
+    static deleteById(req, res) {
         hotel.destroy({ where: { id: req.params.id } })
             .then(() => {
                 res.redirect('/hotels')
