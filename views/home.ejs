@@ -21,10 +21,17 @@
             <span class="navbar-brand mb-0 h1 ">
                 <h3 class="font-weight-bold">StayUp·</h3>
             </span>
-            <div class="my-2 my-lg-0">
-                <button type="button" class="btn btn-transparant font-weight-bold mx-5"><a href="/login" style="color: black; text-decoration: none;">Login</a></button>
-                <button class="btn btn-orange my-2 my-sm-0 px-3" type="submit"><a href="/register" style="color: white; text-decoration: none;">Sign Up</a></button>
-            </div>
+
+           
+           <% if(data === true) {%>
+            <%- include("nav-login.ejs")  %>
+           <% } %> 
+
+           <% if(data === false) {%>
+            <%- include("nav-logout.ejs")  %>
+           <% } %> 
+           
+          
         </nav>
         <div class="mt-5"> <img src="/HeroPicture.png" class="img-fluid" alt="..."></div>
         <div class="mt-5  w-50 mx-auto">
