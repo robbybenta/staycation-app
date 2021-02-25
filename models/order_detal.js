@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   order_detail.init({
-    hotel_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
+    hotelId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     day: {
       type: DataTypes.INTEGER,
       validate: {
