@@ -72,6 +72,9 @@ class HotelControl {
                 res.send(err.message)
             })
     }
+    static findtest(req,res){
+        res.send('masuk')
+    }
 }
 
 

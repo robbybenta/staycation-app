@@ -12,6 +12,7 @@ class Controller {
     }
 
     static registerAdd(req, res) {
+        // console.log('hai')
         const dataUser = {
            ...req.body,
            phone_number:Number(req.body.phone_number)
@@ -33,7 +34,7 @@ class Controller {
         //    }
         if(comparePassword(req.body.password,data.password)){
             // res.send('benar')
-            res.render('error.ejs')
+            res.render('home.ejs',{data:true})
         }
         else{
             res.render('error.ejs')
@@ -42,6 +43,10 @@ class Controller {
         .catch((err)=>{
             res.send(err.message)
         })
+    }
+    static logout(req,res){
+        req.session.destroy()
+        res.render('/', {data:true})
     }
 }
 
