@@ -15,13 +15,13 @@ class Controller {
            ...req.body,
            phone_number:Number(req.body.phone_number)
         }
-        console.log(dataUser)
         user.create(dataUser)
             .then((data) => {
                 res.redirect('/')
             })
             .catch((err) => {
-                res.send(err)
+                console.log(err)
+                res.send(err.message)
             })
     }
 }
