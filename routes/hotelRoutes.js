@@ -12,5 +12,6 @@ router.post('/add', HotelControl.addPost)
 router.get('/edit/:id', HotelControl.editGet)
 router.post('/edit/:id', HotelControl.editPost)
 router.get('/delete/:id', HotelControl.deleteById)
+router.get('/success',HotelControl.success)
 
 module.exports = router 
