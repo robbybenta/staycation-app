@@ -37,7 +37,7 @@
           <% for(let i=0; i<data.users.length;i++){ %>
           <tr>
             <td> <%= i+1 %>  </td>
-            <td> <%= data.users[i].first_name %>  </td>
+            <td> <%= data.users[i].getFullname() %>  </td>
             <td> <%= data.users[i].gender %> </td>
             <td>  <%= data.users[i].email %> </td>
             <td>  <%= data.users[i].phone_number %> </td>

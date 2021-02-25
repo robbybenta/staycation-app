@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       user.belongsToMany(models.hotel, { through: models.order_detail })
     }
+    getFullname(){
+      return this.first_name + ' ' + this.last_name
+    }
   };
   user.init({
     first_name: {

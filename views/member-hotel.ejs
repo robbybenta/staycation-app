@@ -26,6 +26,7 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">ID</th>
+            <th scope="col">Nama Hotel</th>
             <th scope="col">Price</th>
             <th scope="col">Location</th>
             <th scope="col">Duration</th>
@@ -36,6 +37,7 @@
           <% for(let i=0; i<data.hotels.length;i++){ %>
           <tr>
             <td> <%= i+1 %>  </td>
+            <td> <%= data.hotels[i].hotel_name %>  </td>
             <td> <%= data.hotels[i].price %>  </td>
             <td> <%= data.hotels[i].location %>  </td>
             <td> <%= data.hotels[i].order_detail.day %>  </td>
