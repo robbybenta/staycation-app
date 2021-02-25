@@ -89,6 +89,9 @@ class HotelControl {
           res.send(err)
       })
     }
+    static success(req,res){
+        res.render('success.ejs')
+    }
 }
 
 
