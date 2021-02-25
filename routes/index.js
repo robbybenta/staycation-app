@@ -8,12 +8,7 @@ router.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-
 router.use('/hotel', hotelRoutes)
-router.get('/register', User.register)
-router.post('/register', User.registerAdd)
-router.get('/login', User.login)
-
 
 
 router.get('/register',User.register)
