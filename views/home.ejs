@@ -41,11 +41,12 @@
                 Favorite buildings</p>
         </div>
 
-        <% for(let i in data) {%>
+
             <div class="mt-5 pt-5">
                 <div class="row justify-content-between">
-                    <div class="card" style="width: 18rem;">
-                        <img src="<%= data[i].imageURL %> " class="card-img-top py-3 px-3" alt="...">
+                    <% for(let i in data) {%>
+                    <div class="card mb-5" style="width: 18rem;">
+                        <img src="<%= data[i].imageURL %> " class="card-img-top h-50 py-3 px-3 w-100"  alt="...">
                         <div class="card-body ">
                             <div class="d-flex justify-content-between">
                                 <div>
@@ -67,10 +68,10 @@
                         </div>
 
                     </div>
-
+                    <% } %>
                 </div>
             </div>
-            <% } %>
+          
     </div>
     </div>
 
