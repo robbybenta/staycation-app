@@ -45,8 +45,8 @@ class Controller {
         })
     }
     static logout(req,res){
-        req.session.destroy()
-        res.render('/', {data:true})
+         req.session.destroy()
+         res.render('home.ejs', {data:true})
     }
 }
 

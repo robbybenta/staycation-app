@@ -12,7 +12,7 @@ router.use(session({
   }))
 
 router.get('/', (req, res) => {
-    res.render('home.ejs',{data:false})
+    res.render('home.ejs',{data:req.session.email})
 })
 
 
@@ -25,7 +25,7 @@ const secondMiddleWare = (req, res, next) => {
         next()
     }
     else{
-        res.redirect('/')
+        res.redirect('home.ejs')
     }
     
 }
