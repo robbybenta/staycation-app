@@ -49,6 +49,7 @@ class Controller {
         req.session.destroy()
         res.redirect('/')
     }
+   
 }
 
 

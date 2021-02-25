@@ -23,14 +23,14 @@
             </span>
 
 
-            <% if(data===false) {%>
-                <%- include("nav-login.ejs") %>
-                    <% } %>
+           
+           <% if(data === false) {%>
+            <%- include("nav-login.ejs")  %>
+           <% } %> 
 
-                        <% if(data===true) {%>
-                            <%- include("nav-logout.ejs") %>
-                                <% } %>
-
+           <% if(data === true) {%>
+            <%- include("nav-logout.ejs")  %>
+           <% } %> 
 
         </nav>
         <div class="mt-5"> <img src="/HeroPicture.png" class="img-fluid" alt="..."></div>

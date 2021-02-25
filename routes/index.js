@@ -46,7 +46,7 @@ const secondMiddleWare = (req, res, next) => {
 
 // router.use(secondMiddleWare)
 
-//router.use('/hotel', hotelRoutes)
+router.use('/hotel', hotelRoutes)
 router.use(userRoutes)
 // router.post('/register', User.registerAdd)
 // router.get('/register', User.register)
