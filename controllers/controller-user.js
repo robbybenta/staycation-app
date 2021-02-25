@@ -47,7 +47,6 @@ class Controller {
     }
     static logout(req, res) {
         req.session.destroy()
-        // res.render('home.ejs', { data: false })
         res.redirect('/')
     }
     static showVisitors(req,res){

@@ -4,6 +4,7 @@ const router = express.Router()
 const User = require('../controllers/controller-user')
 const hotelRoutes = require('./hotelRoutes')
 const userRoutes = require('./user')
+const { hotel, user } = require('../models')
 
 router.use(session({
     secret: 'staycation - app',
@@ -14,7 +15,15 @@ router.use(session({
 router.use('/hotels', hotelRoutes)
 
 router.get('/', (req, res) => {
-    res.render('home.ejs', { data: false })
+    hotel.findAll({
+        include: [{ model: user }]
+    })
+        .then(data => {
+            res.render('home', { data: data })
+        })
+        .catch(err => {
+            res.send(err.message)
+        })
 })
 
 router.get('/register', User.register)
