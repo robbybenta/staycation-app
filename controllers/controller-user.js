@@ -1,6 +1,6 @@
 const express = require('express')
 const { comparePassword } = require('../helpers/bcrypt')
-const { user } = require('../models')
+const { hotel, user, order_detail } = require('../models')
 
 
 class Controller {
@@ -50,7 +50,35 @@ class Controller {
         // res.render('home.ejs', { data: false })
         res.redirect('/')
     }
-   
+    static showVisitors(req,res){
+        hotel.findByPk(req.params.id,{include:user})
+        .then((data)=>{
+           res.render('show-visitors.ejs',{data:data})
+        })
+        .catch((err)=>{
+            res.send(err)
+        })
+      }
+   static showMember(req,res){
+       user.findAll()
+       .then((data)=>{
+        //    res.send(data)
+        res.render('member.ejs',{data:data})
+       })
+       .catch((err)=>{
+           res.send(err)
+       })
+   }
+   static showHotel(req,res){
+    user.findByPk(req.params.id,{include:hotel})
+    .then((data)=>{
+        // res.send(data)
+        res.render('member-hotel.ejs',{data:data})
+    })
+    .catch((err)=>{
+        res.send(err)
+    })
+}
 }
 
 

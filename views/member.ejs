@@ -21,8 +21,7 @@
   <%- include("nav-admin.ejs")  %>
 
     <div class="container mt-5 pt-5">
-        <h1 class="text-center mb-5">List Hotel</h1>
-        <a href="/hotel/add" ><button type="button" class="btn btn-success mb-3">Add Hotel</button></a>
+        <h1 class="text-center mb-5">List Visitors</h1>
       <table class="table">
         <thead class="table-dark">
           <tr>
@@ -38,13 +37,11 @@
           <% for(let i=0; i<data.length;i++){ %>
           <tr>
             <td> <%= i+1 %>  </td>
-            <td> <%= data[i].hotel_name %>  </td>
-            <td> <%= data[i].price %>  </td>
-            <td> <%= data[i].location %>  </td>
-            <td> <%= data[i].rating %>  </td>
-            <td> <a href="/hotel/edit/<%=data[i].id%>"><button type="button" class="btn btn-warning">Edit</button></a> </td>
-            <td> <a href="/hotel/delete/<%=data[i].id%>"><button type="button" class="btn btn-danger">Delete</button></a> </td>
-            <td> <a href="/hotel/show-visitors/<%=data[i].id%>"><button type="button" class="btn btn-info">Show visitors</button></a> </td>
+            <td> <%= data[i].first_name %>  </td>
+            <td> <%= data[i].gender %>  </td>
+            <td> <%= data[i].phone_number %>  </td>
+            <td> <%= data[i].email %>  </td>
+            <td> <a href="/member/<%=data[i].id%>"><button type="button" class="btn btn-info">Show Hotel</button></a> </td>
           </tr>
           <% } %>
         </tbody>

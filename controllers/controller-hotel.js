@@ -80,6 +80,15 @@ class HotelControl {
     static hotelRent(req,res){
         res.render('hotel-rent.ejs')
     }
+    static showVisitors(req,res){
+      hotel.findByPk(req.params.id,{include:user})
+      .then((data)=>{
+         res.render('show-visitors.ejs',{data:data})
+      })
+      .catch((err)=>{
+          res.send(err)
+      })
+    }
 }
 
 
