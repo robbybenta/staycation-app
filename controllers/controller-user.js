@@ -35,6 +35,7 @@ class Controller {
                 if (comparePassword(req.body.password, data.password)) {
                     // res.send('benar')
                     res.render('home.ejs', { data: true })
+                    res.redirect('/')
                 }
                 else {
                     res.render('error.ejs')
@@ -46,7 +47,7 @@ class Controller {
     }
     static logout(req, res) {
         req.session.destroy()
-        res.render('home.ejs', { data: true })
+        res.redirect('/')
     }
 }
 

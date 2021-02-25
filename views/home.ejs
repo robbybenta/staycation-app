@@ -22,16 +22,16 @@
                 <h3 class="font-weight-bold">StayUp·</h3>
             </span>
 
-           
-           <% if(data === true) {%>
-            <%- include("nav-login.ejs")  %>
-           <% } %> 
 
-           <% if(data === false) {%>
-            <%- include("nav-logout.ejs")  %>
-           <% } %> 
-           
-          
+            <% if(data===false) {%>
+                <%- include("nav-login.ejs") %>
+                    <% } %>
+
+                        <% if(data===true) {%>
+                            <%- include("nav-logout.ejs") %>
+                                <% } %>
+
+
         </nav>
         <div class="mt-5"> <img src="/HeroPicture.png" class="img-fluid" alt="..."></div>
         <div class="mt-5  w-50 mx-auto">
@@ -41,63 +41,37 @@
                 Favorite buildings</p>
         </div>
 
-
-        <div class="mt-5 pt-5">
-            <div class="row justify-content-between">
-                <div class="card" style="width: 18rem;">
-                    <img src="./Picture1.png" class="card-img-top py-3 px-3" alt="...">
-                    <div class="card-body ">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6 class="card-text">High Fly</h6>
-                                <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Bali</h6>
+        <% for(let i in data) {%>
+            <div class="mt-5 pt-5">
+                <div class="row justify-content-between">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%= data[i].imageURL %> " class="card-img-top py-3 px-3" alt="...">
+                        <div class="card-body ">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="card-text">
+                                        <%= data[i].hotel_name %>
+                                    </h6>
+                                    <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">
+                                        <%= data[i].location %>
+                                    </h6>
+                                </div>
+                                <div>
+                                    <h6 class="card-text">
+                                        <%= data[i].price %>
+                                    </h6>
+                                    <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Per Night</h6>
+                                </div>
                             </div>
-                            <div>
-                                <h6 class="card-text">Rp.5000</h6>
-                                <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Per Night</h6>
-                            </div>
+                            <div class="mt-5"><button type="button" class="btn btn-primary w-100">Sewa</button></div>
                         </div>
-                        <div class="mt-5"><button type="button" class="btn btn-primary w-100">Sewa</button></div>
-                    </div>
 
-                </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="./Picture1.png" class="card-img-top py-3 px-3" alt="...">
-                    <div class="card-body ">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6 class="card-text">High Fly</h6>
-                                <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Bali</h6>
-                            </div>
-                            <div>
-                                <h6 class="card-text">Rp.5000</h6>
-                                <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Per Night</h6>
-                            </div>
-                        </div>
-                        <div class="mt-5"><button type="button" class="btn btn-primary w-100">Sewa</button></div>
-                    </div>
-
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./Picture1.png" class="card-img-top py-3 px-3" alt="...">
-                    <div class="card-body ">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6 class="card-text">High Fly</h6>
-                                <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Bali</h6>
-                            </div>
-                            <div>
-                                <h6 class="card-text">Rp.5000</h6>
-                                <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Per Night</h6>
-                            </div>
-                        </div>
-                        <div class="mt-5"><button type="button" class="btn btn-primary w-100">Sewa</button></div>
                     </div>
 
                 </div>
             </div>
-        </div>
+            <% } %>
+    </div>
     </div>
 
 
