@@ -21,30 +21,25 @@
   <%- include("nav-admin.ejs")  %>
 
     <div class="container mt-5 pt-5">
-        <h1 class="text-center mb-5">List Hotel</h1>
-        <a href="/hotel/add" ><button type="button" class="btn btn-success mb-3">Add Hotel</button></a>
+        <h1 class="text-center mb-5">List Hotel - <%= data.first_name %> </h1>
       <table class="table">
         <thead class="table-dark">
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nama Hotel</th>
             <th scope="col">Price</th>
             <th scope="col">Location</th>
-            <th scope="col">Rating</th>
-            <th colspan="3" scope="col">Action</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Total Price</th>
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i<data.length;i++){ %>
+          <% for(let i=0; i<data.hotels.length;i++){ %>
           <tr>
             <td> <%= i+1 %>  </td>
-            <td> <%= data[i].hotel_name %>  </td>
-            <td> <%= data[i].price %>  </td>
-            <td> <%= data[i].location %>  </td>
-            <td> <%= data[i].rating %>  </td>
-            <td> <a href="/hotel/edit/<%=data[i].id%>"><button type="button" class="btn btn-warning">Edit</button></a> </td>
-            <td> <a href="/hotel/delete/<%=data[i].id%>"><button type="button" class="btn btn-danger">Delete</button></a> </td>
-            <td> <a href="/hotel/show-visitors/<%=data[i].id%>"><button type="button" class="btn btn-info">Show visitors</button></a> </td>
+            <td> <%= data.hotels[i].price %>  </td>
+            <td> <%= data.hotels[i].location %>  </td>
+            <td> <%= data.hotels[i].order_detail.day %>  </td>
+            <td> <%= data.hotels[i].order_detail.total_price %>  </td>
           </tr>
           <% } %>
         </tbody>
