@@ -23,11 +23,11 @@
             </span>
 
            
-           <% if(data === true) {%>
+           <% if(data === false) {%>
             <%- include("nav-login.ejs")  %>
            <% } %> 
 
-           <% if(data === false) {%>
+           <% if(data === true) {%>
             <%- include("nav-logout.ejs")  %>
            <% } %> 
            
@@ -57,7 +57,7 @@
                                 <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Per Night</h6>
                             </div>
                         </div>
-                        <div class="mt-5"><button type="button" class="btn btn-primary w-100">Sewa</button></div>
+                        <div class="mt-5"><a href="/hotel/sewa"><button type="button" class="btn btn-primary w-100">Sewa</button></a></div>
                     </div>
 
                 </div>
@@ -75,7 +75,7 @@
                                 <h6 class="card-text mt-3 font-weight-light" style="color: #ADADAD;">Per Night</h6>
                             </div>
                         </div>
-                        <div class="mt-5"><button type="button" class="btn btn-primary w-100">Sewa</button></div>
+                        <div class="mt-5"><a href="/hotel/sewa"><button type="button" class="btn btn-primary w-100">Sewa</button></a></div>
                     </div>
 
                 </div>
