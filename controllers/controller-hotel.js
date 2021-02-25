@@ -6,7 +6,7 @@ class HotelControl {
             include: [{ model: user }]
         })
             .then(data => {
-                res.render('hotelList', { data }) // <<< param1 sesuaikan aja sama nama ejsnya nanti
+                res.render('hotel-list.ejs', { data: data }) // <<< param1 sesuaikan aja sama nama ejsnya nanti
             })
             .catch(err => {
                 res.send(err.message)
@@ -16,7 +16,7 @@ class HotelControl {
     static addGet(req, res) {
         hotel.findAll()
             .then(data => {
-                res.render('addHotel', { data })
+                res.render('addHotel.ejs')
             })
             .catch(err => {
                 res.send(err.message)
@@ -27,7 +27,8 @@ class HotelControl {
         const newData = {
             hotel_name: req.body.hotel_name,
             price: req.body.price,
-            location: req.body.location
+            location: req.body.location,
+            rating: req.body.rating
         }
         hotel.create(newData)
             .then(() => {
@@ -41,7 +42,7 @@ class HotelControl {
     static editGet(req, res) {
         hotel.findByPk(req.params.id)
             .then(data => {
-                res.render('editHotel', { data })
+                res.render('editHotel.ejs', {data})
             })
             .catch(err => {
                 res.send(err.message)
@@ -50,9 +51,10 @@ class HotelControl {
 
     static editPost(req, res) {
         const newData = {
-            hotel_name: req.params.hotel_name,
+            hotel_name: req.body.hotel_name,
             price: req.body.price,
-            location: req.body.location
+            location: req.body.location,
+            rating: req.body.rating
         }
         hotel.update(newData, { where: { id: req.params.id } })
             .then(() => {
@@ -74,6 +76,9 @@ class HotelControl {
     }
     static findtest(req,res){
         res.send('masuk')
+    }
+    static hotelRent(req,res){
+        res.render('hotel-rent.ejs')
     }
 }
 

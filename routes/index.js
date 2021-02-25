@@ -9,25 +9,30 @@ router.use(session({
     secret: 'staycation - app',
     resave: false,
     saveUninitialized: true
-  }))
+}))
+
+router.use('/hotels', hotelRoutes)
 
 router.get('/', (req, res) => {
-    res.render('home.ejs',{data:req.session.email})
+    res.render('home.ejs', { data: false })
 })
 
+router.get('/register', User.register)
+router.post('/register', User.registerAdd)
+router.get('/login', User.login)
 
 
 
 const secondMiddleWare = (req, res, next) => {
-    if(req.body.email !== '' && req.body.password !== ''){
-        req.session.email=req.body.email
+    if (req.body.email !== '' && req.body.password !== '') {
+        req.session.email = req.body.email
         // console.log(req.session,'indexs')
         next()
     }
-    else{
+    else {
         res.redirect('home.ejs')
     }
-    
+
 }
 
 // router.use(secondMiddleWare)
