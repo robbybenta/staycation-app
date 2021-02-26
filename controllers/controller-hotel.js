@@ -78,9 +78,13 @@ class HotelControl {
         res.send('masuk')
     }
     static hotelRentGet(req, res) {
-        hotel.findAll()
+        hotel.findByPk(req.params.id)
             .then(data => {
-                res.render('hotel-rent', { data })
+                res.render('hotel-rent.ejs', { data })
+                // res.send(data)
+            })
+            .catch((err)=>{
+                res.send(err)
             })
     }
     static hotelRentPost(req, res) {
