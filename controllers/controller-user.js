@@ -12,7 +12,6 @@ class Controller {
     }
 
     static registerAdd(req, res) {
-        // console.log('hai')
         const dataUser = {
             ...req.body,
             phone_number: Number(req.body.phone_number)
@@ -29,11 +28,7 @@ class Controller {
     static loginSuccess(req, res) {
         user.findOne({ where: { email: req.body.email } })
             .then((data) => {
-                //    if(data.password===comparePassword()req.body.password){
-
-                //    }
                 if (comparePassword(req.body.password, data.password)) {
-                    // res.send('benar')
                     res.render('home.ejs', { data: true })
                     res.redirect('/')
                 }
@@ -49,35 +44,33 @@ class Controller {
         req.session.destroy()
         res.redirect('/')
     }
-    static showVisitors(req,res){
-        hotel.findByPk(req.params.id,{include:user})
-        .then((data)=>{
-           res.render('show-visitors.ejs',{data:data})
-        })
-        .catch((err)=>{
-            res.send(err)
-        })
-      }
-   static showMember(req,res){
-       user.findAll()
-       .then((data)=>{
-        //    res.send(data)
-        res.render('member.ejs',{data:data})
-       })
-       .catch((err)=>{
-           res.send(err)
-       })
-   }
-   static showHotel(req,res){
-    user.findByPk(req.params.id,{include:hotel})
-    .then((data)=>{
-        // res.send(data)
-        res.render('member-hotel.ejs',{data:data})
-    })
-    .catch((err)=>{
-        res.send(err)
-    })
-}
+    static showVisitors(req, res) {
+        hotel.findByPk(req.params.id, { include: user })
+            .then((data) => {
+                res.render('show-visitors.ejs', { data: data })
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+    }
+    static showMember(req, res) {
+        user.findAll()
+            .then((data) => {
+                res.render('member.ejs', { data: data })
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+    }
+    static showHotel(req, res) {
+        user.findByPk(req.params.id, { include: hotel })
+            .then((data) => {
+                res.render('member-hotel.ejs', { data: data })
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+    }
 }
 
 

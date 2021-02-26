@@ -35,7 +35,6 @@ router.get('/login', User.login)
 const secondMiddleWare = (req, res, next) => {
     if (req.body.email !== '' && req.body.password !== '') {
         req.session.email = req.body.email
-        // console.log(req.session,'indexs')
         next()
     }
     else {
@@ -44,15 +43,8 @@ const secondMiddleWare = (req, res, next) => {
 
 }
 
-// router.use(secondMiddleWare)
-
 router.use('/hotel', hotelRoutes)
 router.use(userRoutes)
-// router.post('/register', User.registerAdd)
-// router.get('/register', User.register)
-// router.get('/login', User.login)
-// router.post('/login',secondMiddleWare, User.loginSuccess)
-// router.use('/logout', User.logout)
 
 module.exports = router
 

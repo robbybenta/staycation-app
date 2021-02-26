@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       user.belongsToMany(models.hotel, { through: models.order_detail })
     }
-    getFullname(){
+    getFullname() {
       return this.first_name + ' ' + this.last_name
     }
   };
@@ -58,10 +58,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'user',
     hooks: {
-      beforeCreate: (instance,options) => {
-        console.log(instance.dataValues.password,'sebelummmm')
+      beforeCreate: (instance, options) => {
         instance.dataValues.password = hashPassword(instance.dataValues.password)
-        console.log(instance.dataValues.password,'sesudah')
       }
     }
   });

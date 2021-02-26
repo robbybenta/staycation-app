@@ -6,7 +6,7 @@ class HotelControl {
             include: [{ model: user }]
         })
             .then(data => {
-                res.render('hotel-list.ejs', { data: data }) // <<< param1 sesuaikan aja sama nama ejsnya nanti
+                res.render('hotel-list.ejs', { data: data })
             })
             .catch(err => {
                 res.send(err.message)
@@ -42,7 +42,7 @@ class HotelControl {
     static editGet(req, res) {
         hotel.findByPk(req.params.id)
             .then(data => {
-                res.render('editHotel.ejs', {data})
+                res.render('editHotel.ejs', { data })
             })
             .catch(err => {
                 res.send(err.message)
@@ -74,22 +74,39 @@ class HotelControl {
                 res.send(err.message)
             })
     }
-    static findtest(req,res){
+    static findtest(req, res) {
         res.send('masuk')
     }
-    static hotelRent(req,res){
-        res.render('hotel-rent.ejs')
+    static hotelRentGet(req, res) {
+        hotel.findAll()
+            .then(data => {
+                res.render('hotel-rent', { data })
+            })
     }
-    static showVisitors(req,res){
-      hotel.findByPk(req.params.id,{include:user})
-      .then((data)=>{
-         res.render('show-visitors.ejs',{data:data})
-      })
-      .catch((err)=>{
-          res.send(err)
-      })
+    static hotelRentPost(req, res) {
+        const newData = {
+            hotelId: req.params.id,
+            day: req.body.day
+        }
+        order_detail.create(newData)
+            .then(() => {
+                res.redirect('/success')
+            })
+            .catch(err => {
+                res.send(err.message)
+            })
     }
-    static success(req,res){
+
+    static showVisitors(req, res) {
+        hotel.findByPk(req.params.id, { include: user })
+            .then((data) => {
+                res.render('show-visitors.ejs', { data: data })
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+    }
+    static success(req, res) {
         res.render('success.ejs')
     }
 }
